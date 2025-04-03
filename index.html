@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; template</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+
+
+
+    <style>
+      body {
+          margin: 0;
+          padding: 100px 10px 10px; /* Header yüksekliğine göre arttırdık */
+          border: 15px solid #0000ff;
+          min-height: 100vh;
+      }
+
+      /* HEADER STİLLERİ */
+      .header {
+          position: fixed;
+          top: 15px;
+          left: 15px;
+          right: 15px;
+          background: white;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          z-index: 1000; /* Diğer elementlerin üstünde kalması için */
+      }
+
+      .logo {
+          height: 40px;
+      }
+
+      .brand {
+          font-family: Arial, sans-serif;
+          font-size: 24px;
+          color: #333;
+          margin-right: auto; /* Butonları sağa itmek için */
+      }
+
+      /* BUTON STİLLERİ */
+      .header-buttons {
+          display: flex;
+          gap: 10px;
+      }
+
+      .btn {
+          padding: 8px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          background: #0000ff;
+          color: white;
+          transition: 0.3s;
+      }
+
+      .btn:hover {
+          opacity: 0.9;
+      }
+
+      /* İÇERİK ALANI */
+      .content {
+          margin-top: 20px;
+      }
+
+      /* RESPONSIVE AYARLAR */
+      @media (max-width: 768px) {
+          body { padding-top: 90px; border-width: 10px; }
+          .header { top: 10px; left: 10px; right: 10px; }
+          .logo { height: 35px; }
+          .brand { font-size: 20px; }
+          .btn { padding: 6px 15px; }
+      }
+
+      @media (max-width: 480px) {
+          body { padding-top: 85px; border-width: 7px; }
+          .header { top: 7px; left: 7px; right: 7px; gap: 10px; }
+          .logo { height: 30px; }
+          .brand { font-size: 18px; }
+          .header-buttons { gap: 5px; }
+          .btn { padding: 5px 12px; font-size: 14px; }
+      }
+  </style>
+
+
+
+
+
+  </head>
+  <body>
+    <!-- <model-viewer> HTML element -->
+    <model-viewer src="to3dARGLB1.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+    </model-viewer>  
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  </body>
+</html>
