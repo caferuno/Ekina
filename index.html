@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>&lt;ARTI-WORKS&gt; K. ARTI MUHENDISLIK MIMARLIK</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+  </head>
+
+  <!DOCTYPE html>
+  <html lang="tr">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Marka Adı</title>
+      <style>
+          body {
+              margin: 0;
+              padding: 70px 10px 10px;
+              border: 15px solid #0000ff;
+              min-height: 100vh;
+          }
+  
+          .header {
+              position: fixed;
+              top: 15px;
+              left: 15px;
+              right: 15px;
+              background: white;
+              padding: 10px;
+              display: flex;
+              align-items: center;
+              gap: 15px;
+              box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          }
+  
+          .logo {
+              height: 40px;
+              width: auto;
+          }
+  
+          .brand {
+              font-family: Arial, sans-serif;
+              font-size: 24px;
+              color: #333;
+          }
+  
+          @media (max-width: 768px) {
+              body {
+                  border-width: 10px;
+                  padding-top: 60px;
+              }
+              .header {
+                  top: 10px;
+                  left: 10px;
+                  right: 10px;
+              }
+              .logo {
+                  height: 35px;
+              }
+              .brand {
+                  font-size: 20px;
+              }
+          }
+  
+          @media (max-width: 480px) {
+              body {
+                  border-width: 7px;
+                  padding-top: 55px;
+              }
+              .header {
+                  top: 7px;
+                  left: 7px;
+                  right: 7px;
+                  gap: 10px;
+              }
+              .logo {
+                  height: 30px;
+              }
+              .brand {
+                  font-size: 18px;
+              }
+          }
+      </style>
+  </head>
+  <body>
+      <header class="header">
+          <img src="logo.JPG" alt="Logo" class="logo">
+          <div class="brand">KARASU ARTI MÜHENDİSLİK MİMARLIK</div>
+      </header>
+  
+      <!-- İçerik buraya gelecek -->
+  </body>
+  </html>
+
+  
+  <body>
+   
+    <model-viewer src="to3dARGLB1.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1">
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+    </model-viewer>  
+    <script src="script.js"></script>
+    
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  </body>
+</html>
