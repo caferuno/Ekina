@@ -10,88 +10,119 @@
 
 
 
-
-
-
-
-
     <style>
-      body {
+      /* TEMEL STİLLER */
+      * {
+          box-sizing: border-box;
           margin: 0;
-          padding: 100px 10px 10px; /* Header yüksekliğine göre arttırdık */
+          padding: 0;
+      }
+
+      html, body {
+          height: 100%;
+          overflow: hidden;
+      }
+
+      body {
           border: 15px solid #0000ff;
-          min-height: 100vh;
+          position: relative;
+          display: flex;
+          flex-direction: column;
       }
 
-      /* HEADER STİLLERİ */
+      /* HEADER YAPISI */
       .header {
-          position: fixed;
-          top: 15px;
-          left: 15px;
-          right: 15px;
-          background: white;
-          padding: 10px;
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-          z-index: 1000; /* Diğer elementlerin üstünde kalması için */
+        position: fixed;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            height: 40px; /* Sabit yükseklik */
+            background: white;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            cursor: pointer; /* Tıklanabilir gösterge */
+            transition: 0.2s all ease;
+            z-index: 1000;
       }
+      .header:hover {
+            background: #f8f8f8;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        .logo {
+            height: 30px; /* Logo küçültüldü */
+            width: auto;
+        }
 
-      .logo {
-          height: 40px;
+        .brand {
+            font-family: Arial, sans-serif;
+            font-size: 18px; /* Yazı boyutu küçültüldü */
+            color: #333;
+            margin-right: auto;
+        }
+      /* MODEL GÖRÜNTÜLEYİCİ */
+      model-viewer {
+          flex-grow: 1;
+          width: 100%;
+          height: calc(100vh - 15px - 50px); /* Çerçeve + header yüksekliği */
+          touch-action: pan-y;
       }
-
-      .brand {
-          font-family: Arial, sans-serif;
-          font-size: 24px;
-          color: #333;
-          margin-right: auto; /* Butonları sağa itmek için */
-      }
-
-      /* BUTON STİLLERİ */
-      .header-buttons {
-          display: flex;
-          gap: 10px;
-      }
-
+/* BUTON STİLLERİ */
+.header-buttons {
+            display: flex;
+            gap: 8px;
+        }
+      /* BUTONLAR */
       .btn {
-          padding: 8px 20px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          background: #0000ff;
-          color: white;
-          transition: 0.3s;
+        padding: 5px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            background: #0000ff;
+            color: white;
+            font-size: 14px;
+            transition: 0.2s all;
       }
 
       .btn:hover {
-          opacity: 0.9;
-      }
-
-      /* İÇERİK ALANI */
-      .content {
-          margin-top: 20px;
+          background: #0000ff;
+          color: white;
       }
 
       /* RESPONSIVE AYARLAR */
       @media (max-width: 768px) {
-          body { padding-top: 90px; border-width: 10px; }
-          .header { top: 10px; left: 10px; right: 10px; }
-          .logo { height: 35px; }
-          .brand { font-size: 20px; }
-          .btn { padding: 6px 15px; }
+          body {
+              border-width: 10px;
+          }
+          model-viewer {
+              height: calc(100vh - 10px - 45px);
+          }
+          .btn {
+              padding: 6px 12px;
+              font-size: 14px;
+          }
       }
 
       @media (max-width: 480px) {
-          body { padding-top: 85px; border-width: 7px; }
-          .header { top: 7px; left: 7px; right: 7px; gap: 10px; }
-          .logo { height: 30px; }
-          .brand { font-size: 18px; }
-          .header-buttons { gap: 5px; }
-          .btn { padding: 5px 12px; font-size: 14px; }
+          body {
+              border-width: 7px;
+          }
+          model-viewer {
+              height: calc(100vh - 7px - 40px);
+          }
+          .header {
+              padding: 8px;
+              gap: 5px;
+          }
+          .btn {
+              padding: 5px 10px;
+              font-size: 12px;
+          }
       }
   </style>
+
 
 
 
